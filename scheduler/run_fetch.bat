@@ -1,3 +1,4 @@
 @echo off
-python %~dp0scheduler_call.py
+cd /d "%~dp0\.."
+python "%~dp0scheduler_call.py"
 pause

@@ -7,11 +7,23 @@ from .db import get_engine
 from dotenv import load_dotenv
 import os
 
+# Create logs directory in project root
+log_dir = os.path.join(os.path.abspath(os.path.dirname(__file__)), "..", "logs")
+os.makedirs(log_dir, exist_ok=True)
+log_file = os.path.join(log_dir, "app.log")
+
+# Setup logging to both file and console
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(log_file),
+        logging.StreamHandler()
+    ]
+)
+
 # Load environment variables
 load_dotenv()
-
-# Setup logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def convert_time(ms):
     if ms:
