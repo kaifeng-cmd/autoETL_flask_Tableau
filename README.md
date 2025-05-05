@@ -8,11 +8,11 @@
 
 [Click here to access full Tableau dashboard](https://public.tableau.com/app/profile/kai.feng.kong/viz/earthquakes_17461967376320/Dashboard3)
 
-![Tableau Dashboard](assets\main.png)
+![Tableau Dashboard](assets/main.png)
 
-![Dashboard enables direct access to USGS web map](assets\usgsMAP.png)
+![Dashboard enables direct access to USGS web map](assets/usgsMAP.png)
 
-![Another example](assets\usgsMAP2.png)
+![Another example](assets/usgsMAP2.png)
 
 ## Project Structure
 ```
@@ -110,6 +110,6 @@ Logging is implemented for monitoring and debugging
 Use *Tableau Desktop* instead of *Tableau Public* (the public version is restricted to access database)  
 You're not neccessary must use *MySQL Workbench*, it's just a GUI database management tool, you can use others
 
-![MySQL Workbench](assets\MySQL_Workbench.png)  
-![Logging](assets\log.png)
+![MySQL Workbench](assets/MySQL_Workbench.png)  
+![Logging](assets/log.png)
 
