@@ -1,6 +1,10 @@
-# Earthquake Data API
+# Near Real-time Earthquake Dashboard with Automated ETL Pipeline
 
-This Flask application fetches earthquake data from the USGS API, processes it with reverse geocoding, stores it in MySQL, and provides an API endpoint for data retrieval. The data is connected to Tableau for live visualization.
+🌎 This project delivers a near real-time dashboard to monitor global earthquakes. The data is extracted from the USGS GeoJSON API, enriched with geolocation details using BigDataCloud’s Reverse Geocoding API, and stored in MySQL. A Flask application automates the pipeline, driven by Windows Task Scheduler every minute. Tableau provides a live, interactive dashboard, refreshed to reveal earthquake patterns in a clear, storytelling format.
+
+🌎 The pipeline starts with the USGS API, fetching fresh earthquake data every minute. BigDataCloud’s reverse geocoding adds details like continent, country, and state. Flask processes and stores the data in MySQL, with Task Scheduler ensuring continuous automation. Logs track pipeline activity for reliable monitoring. The result is a robust dataset, ready for visualization.
+
+🌎 Tableau connects directly to MySQL, transforming data into maps, timelines, and charts. A simple refresh updates the dashboard, presenting insights in a storytelling style. This makes earthquake trends accessible to researchers, officials, or anyone seeking clarity on seismic activity.
 
 ## Project Structure
 ```
@@ -11,6 +15,9 @@ earthquake_project/
 │   ├── routes.py               # API routes
 │   ├── fetch_usgs.py           # USGS data fetching and storage
 │   └── db.py                   # Database connection
+├── assets/                     # You ignore this
+├── logs/
+|   └── app.log                 # The file where logs saved
 ├── scheduler/                  # Scheduling scripts
 │   ├── scheduler_call.py       # Script to call API
 │   └── run_fetch.bat           # Windows Task Scheduler script
@@ -25,26 +32,28 @@ earthquake_project/
 ## Setup
 
 Install dependencies:
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 Create a .env file in the project root with the following content:  
+```
 **BIGDATACLOUD_API_KEY**=your_bigdatacloud_api_key  
-**MYSQL_USER**=your_mysql_user  
-**MYSQL_PASSWORD**=your_mysql_password  
-**MYSQL_HOST**=localhost  
-**MYSQL_PORT**=3306  
-**MYSQL_DATABASE**=earthquake_db
-
-Replace **your_bigdatacloud_api_key**, **your_mysql_user**, and **your_mysql_password** with your actual values.
+**MYSQL_USER** = your_mysql_user  
+**MYSQL_PASSWORD** = your_mysql_password  
+**MYSQL_HOST** = localhost  
+**MYSQL_PORT** = 3306  
+**MYSQL_DATABASE** = earthquake_db
+```  
+Replace *your_bigdatacloud_api_key*, *your_mysql_user*, and *your_mysql_password* with your actual values.
 
 Ensure MySQL is running and the credentials in .env are correct.
 
 Run the Flask app:
-*python run.py*
+```python run.py```
 
 Schedule periodic data fetching using Windows Task Scheduler:
 
 Create a task to run scheduler/run_fetch.bat  
+
 Set desired frequency (e.g., minutely)
 
 ## API Endpoints
@@ -68,6 +77,7 @@ Select the *earthquakes* db table for live data connection (in Tableau data sour
 The application uses BigDataCloud API for reverse geocoding  
 Data is stored in the *earthquakes* db table with comprehensive fields  
 Logging is implemented for monitoring and debugging  
+You're not neccessary must use MySQL Workbench, it's just a GUI database management tool, you can use others
 
 
 
