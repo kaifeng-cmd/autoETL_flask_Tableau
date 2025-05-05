@@ -9,10 +9,13 @@
 [Click here to access full Tableau dashboard](https://public.tableau.com/app/profile/kai.feng.kong/viz/earthquakes_17461967376320/Dashboard3)
 
 ![Tableau Dashboard](assets/main.png)
+*Figure 1: Tableau Dashboard*
 
 ![Dashboard enables direct access to USGS web map](assets/usgsMAP.png)
+*Figure 2: Dashboard enables direct access to USGS web map*
 
 ![Another example](assets/usgsMAP2.png)
+*Figure 3: Another example*
 
 ## Project Structure
 ```
@@ -92,7 +95,8 @@ GET /fetch-data: Fetches latest USGS earthquake data and stores it in MySQL
 
 ## Tableau Connection
 
-Use MySQL connector in Tableau Desktop   
+Use MySQL connector in Tableau Desktop
+
 Connect to:  
 **Host:** Use the value from MYSQL_HOST in .env (e.g., localhost)  
 **Port:** Use the value from MYSQL_PORT in .env (e.g., 3306)  
@@ -110,6 +114,8 @@ Logging is implemented for monitoring and debugging
 Use *Tableau Desktop* instead of *Tableau Public* (the public version is restricted to access database)  
 You're not neccessary must use *MySQL Workbench*, it's just a GUI database management tool, you can use others
 
-![MySQL Workbench](assets/MySQL_Workbench.png)  
-![Logging](assets/log.png)
+![MySQL Workbench](assets/MySQL_Workbench.png)
+*Figure 4: MySQL Workbench*
 
+![Logging](assets/log.png)
+*Figure 5: Logging*
